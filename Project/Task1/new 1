@@ -1,0 +1,23 @@
+CREATE TABLE User( User_id VARCHAR(9) PRIMARY KEY, Name VARCHAR(25), Age INT(9), Address VARCHAR(25), Phone VARCHAR(25), L_name VARCHAR(25), Email VARCHAR(25), User_name VARCHAR(25));
+
+CREATE TABLE Blog ( Article_id VARCHAR(9) PRIMARY KEY, Data VARCHAR(25), Comments VARCHAR(25), FOREIGN KEY (User_id) REFERENCES User(User_id));
+
+CREATE TABLE Login( Login_ID VARCHAR(9) PRIMARY KEY, Login_name VARCHAR(25), Login_Password VARCHAR(25), Login_role VARCHAR(25));
+
+CREATE TABLE Equipment( Equip_id VARCHAR(9) PRIMARY KEY, Email VARCHAR(25), Equip_details VARCHAR(25), User_name VARCHAR(25), FOREIGN KEY (User_id) REFERENCES User(User_id)));
+
+CREATE TABLE Contact ( Email VARCHAR(9) PRIMARY KEY, Name VARCHAR(25), Phone VARCHAR(25),Address VARCHAR(25), Subject VARCHAR(25) FOREIGN KEY (User_id) REFERENCES User(User_id));
+
+CREATE TABLE Events ( Event_id VARCHAR(9) PRIMARY KEY, Event_name VARCHAR(25), Event_description VARCHAR(25), FOREIGN KEY (User_id) REFERENCES User(User_id));
+
+CREATE TABLE Project ( Project_id VARCHAR(9) PRIMARY KEY, Project_title VARCHAR(25), Project_description VARCHAR(25),Project_purpose VARCHAR(25), FOREIGN KEY (User_id) REFERENCES User(User_id));
+
+CREATE TABLE Institution ( Name VARCHAR(9), Purpose VARCHAR(25), Location VARCHAR(25), FOREIGN KEY (Project_id) REFERENCES Project(Project_id));
+
+CREATE TABLE Videos ( Video_id VARCHAR(9) PRIMARY KEY, Video_title VARCHAR(25), Link_url VARCHAR(25), FOREIGN KEY (Event_id) REFERENCES Events(Event_id));
+
+
+
+
+
+
